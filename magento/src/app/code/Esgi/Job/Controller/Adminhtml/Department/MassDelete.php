@@ -1,5 +1,4 @@
 <?php
-
 namespace Esgi\Job\Controller\Adminhtml\Department;
 
 use Magento\Framework\Controller\ResultFactory;

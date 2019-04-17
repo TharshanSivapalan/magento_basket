@@ -1,5 +1,4 @@
 <?php
-
 namespace Esgi\Job\Controller\Adminhtml\Department;
 
 class Delete extends \Esgi\Job\Controller\Adminhtml\Department

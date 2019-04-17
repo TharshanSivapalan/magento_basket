@@ -12,7 +12,7 @@ use Magento\Framework\Exception\NoSuchEntityException;
 /**
  * Class GenericButton
  */
-class GenericButton
+abstract class GenericButton
 {
     /**
      * @var Context

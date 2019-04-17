@@ -10,21 +10,22 @@ class Edit extends \Esgi\Job\Controller\Adminhtml\Department
     protected $resultPageFactory;
 
     /**
-     * @param \Magento\Backend\App\Action\Context        $context
-     * @param \Magento\Framework\Registry                $coreRegistry
+     * @param \Magento\Backend\App\Action\Context $context
+     * @param \Magento\Framework\Registry $coreRegistry
      * @param \Magento\Framework\View\Result\PageFactory $resultPageFactory
      */
     public function __construct(
         \Magento\Backend\App\Action\Context $context,
         \Magento\Framework\Registry $coreRegistry,
         \Magento\Framework\View\Result\PageFactory $resultPageFactory
-    ) {
+    )
+    {
         $this->resultPageFactory = $resultPageFactory;
         parent::__construct($context, $coreRegistry);
     }
 
     /**
-     * Edit Job department
+     * Edit Job job
      *
      * @return \Magento\Framework\Controller\ResultInterface
      * @SuppressWarnings(PHPMD.NPathComplexity)
@@ -32,7 +33,7 @@ class Edit extends \Esgi\Job\Controller\Adminhtml\Department
     public function execute()
     {
         // 1. Get ID and create model
-        $id    = $this->getRequest()->getParam('id');
+        $id = $this->getRequest()->getParam('id');
         $model = $this->_objectManager->create(\Esgi\Job\Model\Department::class);
         // 2. Initial checking
         if ($id) {
@@ -60,4 +61,4 @@ class Edit extends \Esgi\Job\Controller\Adminhtml\Department
 
         return $resultPage;
     }
-}
+}git

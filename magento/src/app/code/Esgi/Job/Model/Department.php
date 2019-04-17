@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace Esgi\Job\Model;
@@ -14,14 +15,17 @@ class Department extends AbstractModel implements DepartmentInterface, IdentityI
      * Esgi Job department cache tag
      */
     const CACHE_TAG = 'esgi_job_d';
+
     /**#@-*/
     protected $_cacheTag = self::CACHE_TAG;
+
     /**
      * Prefix of model events names
      *
      * @var string
      */
     protected $_eventPrefix = 'esgi_job';
+
     /**
      * Parameter name in event
      *
@@ -30,6 +34,7 @@ class Department extends AbstractModel implements DepartmentInterface, IdentityI
      * @var string
      */
     protected $_eventObject = 'department';
+
     /**
      * Name of object id field
      *
@@ -128,6 +133,7 @@ class Department extends AbstractModel implements DepartmentInterface, IdentityI
         if ($this->hasDataChanges()) {
             $this->setUpdateTime(null);
         }
+
         return parent::beforeSave();
     }
 }

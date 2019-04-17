@@ -7,3 +7,11 @@ $departments = $block->getDepartments();
         <li><?php echo $department->getTitle(); ?></li>
     <?php endforeach; ?>
 </ul>
+<script type="text/x-magento-init">
+    {
+        "#department-list":
+        {
+            "jobDepartmentAjax": {}
+        }
+    }
+</script>

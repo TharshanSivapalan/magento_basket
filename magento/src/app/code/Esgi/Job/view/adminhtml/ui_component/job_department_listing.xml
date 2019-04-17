@@ -43,7 +43,6 @@
         </argument>
     </dataSource>
 
-
     <listingToolbar name="listing_top">
         <settings>
             <sticky>true</sticky>
@@ -109,17 +108,6 @@
             </argument>
         </selectionsColumn>
 
-        <!-- Action columns -->
-        <actionsColumn name="actions" class="Esgi\Job\Ui\Component\Listing\Column\DepartmentActions">
-            <argument name="data" xsi:type="array">
-                <item name="config" xsi:type="array">
-                    <item name="resizeEnabled" xsi:type="boolean">false</item>
-                    <item name="resizeDefaultWidth" xsi:type="string">107</item>
-                    <item name="indexField" xsi:type="string">entity_id</item>
-                </item>
-            </argument>
-        </actionsColumn>
-
         <!-- ID Column -->
         <column name="entity_id">
             <argument name="data" xsi:type="array">
@@ -146,6 +134,17 @@
                 </item>
             </argument>
         </column>
+
+        <!-- Action columns -->
+        <actionsColumn name="actions" class="Esgi\Job\Ui\Component\Listing\Column\DepartmentActions">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="resizeEnabled" xsi:type="boolean">false</item>
+                    <item name="resizeDefaultWidth" xsi:type="string">107</item>
+                    <item name="indexField" xsi:type="string">entity_id</item>
+                </item>
+            </argument>
+        </actionsColumn>
 
     </columns>
 
