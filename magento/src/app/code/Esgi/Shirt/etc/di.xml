@@ -1,0 +1,82 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Esgi\Shirt\Api\Data\TeamSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults"/>
+    <preference for="Esgi\Shirt\Api\Data\TeamInterface" type="Esgi\Shirt\Model\Team"/>
+    <preference for="Esgi\Shirt\Api\TeamRepositoryInterface" type="Esgi\Shirt\Model\TeamRepository"/>
+
+    <preference for="Esgi\Shirt\Api\Data\ShirtSearchResultsInterface"
+                type="Magento\Framework\Api\SearchResults"/>
+    <preference for="Esgi\Shirt\Api\Data\ShirtInterface" type="Esgi\Shirt\Model\Shirt"/>
+    <preference for="Esgi\Shirt\Api\ShirtRepositoryInterface" type="Esgi\Shirt\Model\ShirtRepository"/>
+
+    <!-- Create our type TeamGridDataProvider -->
+    <virtualType name="TeamGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Esgi\Shirt\Model\ResourceModel\Team\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">TeamGridFilterPool</argument> <!-- Define new object for filters -->
+        </arguments>
+    </virtualType>
+
+    <!-- Create our type TeamGridFilterPool -->
+    <virtualType name="TeamGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Type for shirt_team_listing_data_source -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="shirt_team_listing_data_source" xsi:type="string">Esgi\Shirt\Model\ResourceModel\Grid\Team\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Simulate our class Esgi\Shirt\Model\ResourceModel\Grid\Team\Collection -->
+    <virtualType name="Esgi\Shirt\Model\ResourceModel\Grid\Team\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">esgi_shirt_team</argument>
+            <argument name="resourceModel" xsi:type="string">Esgi\Shirt\Model\ResourceModel\Team</argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Create our type ShirtGridDataProvider -->
+    <virtualType name="ShirtGridDataProvider" type="Magento\Framework\View\Element\UiComponent\DataProvider\DataProvider">
+        <arguments>
+            <argument name="collection" xsi:type="object" shared="false">Esgi\Shirt\Model\ResourceModel\Shirt\Collection</argument>
+            <argument name="filterPool" xsi:type="object" shared="false">ShirtGridFilterPool</argument> <!-- Define new object for filters -->
+        </arguments>
+    </virtualType>
+
+    <!-- Create our type ShirtGridFilterPool -->
+    <virtualType name="ShirtGridFilterPool" type="Magento\Framework\View\Element\UiComponent\DataProvider\FilterPool">
+        <arguments>
+            <argument name="appliers" xsi:type="array">
+                <item name="regular" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\RegularFilter</item>
+                <item name="fulltext" xsi:type="object">Magento\Framework\View\Element\UiComponent\DataProvider\FulltextFilter</item>
+            </argument>
+        </arguments>
+    </virtualType>
+
+    <!-- Type for shirt_shirt_listing_data_source -->
+    <type name="Magento\Framework\View\Element\UiComponent\DataProvider\CollectionFactory">
+        <arguments>
+            <argument name="collections" xsi:type="array">
+                <item name="shirt_shirt_listing_data_source" xsi:type="string">Esgi\Shirt\Model\ResourceModel\Grid\Shirt\Collection</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <!-- Simulate our class Esgi\Shirt\Model\ResourceModel\Grid\Shirt\Collection -->
+    <virtualType name="Esgi\Shirt\Model\ResourceModel\Grid\Shirt\Collection" type="Magento\Framework\View\Element\UiComponent\DataProvider\SearchResult">
+        <arguments>
+            <argument name="mainTable" xsi:type="string">esgi_shirt_shirt</argument>
+            <argument name="resourceModel" xsi:type="string">Esgi\Shirt\Model\ResourceModel\Shirt</argument>
+        </arguments>
+    </virtualType>
+</config>

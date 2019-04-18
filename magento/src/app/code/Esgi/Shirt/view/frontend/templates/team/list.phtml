@@ -1,0 +1,17 @@
+<?php
+/** @var $block Esgi\Shirt\Block\Team */
+$teams = $block->getTeams();
+?>
+<ul id="department-list">
+    <?php foreach ($teams as $team) : ?>
+        <li><?php echo $team->getTitle(); ?></li>
+    <?php endforeach; ?>
+</ul>
+<script type="text/x-magento-init">
+    {
+        "#team-list":
+        {
+            "shirtTeamAjax": {}
+        }
+    }
+</script>

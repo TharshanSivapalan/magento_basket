@@ -1,8 +1,8 @@
 <?php
 
-namespace Esgi\Job\Controller\Adminhtml\Department;
+namespace Esgi\Shirt\Controller\Adminhtml\Team;
 
-class Edit extends \Esgi\Job\Controller\Adminhtml\Department
+class Edit extends \Esgi\Shirt\Controller\Adminhtml\Team
 {
     /**
      * @var \Magento\Framework\View\Result\PageFactory
@@ -25,7 +25,7 @@ class Edit extends \Esgi\Job\Controller\Adminhtml\Department
     }
 
     /**
-     * Edit Job job
+     * Edit Shirt shirt
      *
      * @return \Magento\Framework\Controller\ResultInterface
      * @SuppressWarnings(PHPMD.NPathComplexity)
@@ -34,12 +34,12 @@ class Edit extends \Esgi\Job\Controller\Adminhtml\Department
     {
         // 1. Get ID and create model
         $id = $this->getRequest()->getParam('id');
-        $model = $this->_objectManager->create(\Esgi\Job\Model\Department::class);
+        $model = $this->_objectManager->create(\Esgi\Shirt\Model\Team::class);
         // 2. Initial checking
         if ($id) {
             $model->load($id);
             if (!$model->getId()) {
-                $this->messageManager->addError(__('This department no longer exists.'));
+                $this->messageManager->addError(__('This team no longer exists.'));
                 /** @var \Magento\Backend\Model\View\Result\Redirect $resultRedirect */
                 $resultRedirect = $this->resultRedirectFactory->create();
 
@@ -47,17 +47,17 @@ class Edit extends \Esgi\Job\Controller\Adminhtml\Department
             }
         }
 
-        $this->_coreRegistry->register('job_department', $model);
+        $this->_coreRegistry->register('shirt_team', $model);
 
         // 5. Build edit form
         /** @var \Magento\Backend\Model\View\Result\Page $resultPage */
         $resultPage = $this->resultPageFactory->create();
         $this->initPage($resultPage)->addBreadcrumb(
-            $id ? __('Edit Department') : __('New Department'),
-            $id ? __('Edit Department') : __('New Department')
+            $id ? __('Edit Team') : __('New Team'),
+            $id ? __('Edit Team') : __('New Team')
         );
-        $resultPage->getConfig()->getTitle()->prepend(__('Departments'));
-        $resultPage->getConfig()->getTitle()->prepend($model->getId() ? $model->getName() : __('New Department'));
+        $resultPage->getConfig()->getTitle()->prepend(__('Teams'));
+        $resultPage->getConfig()->getTitle()->prepend($model->getId() ? $model->getName() : __('New Team'));
 
         return $resultPage;
     }

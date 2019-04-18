@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<!-- app/code/Esgi/Shirt/etc/adminhtml/menu.xml -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd">
+    <menu>
+        <add id="Esgi_Shirt::shirt_head" title="Shirts" module="Esgi_Shirt" sortOrder="100" resource="Esgi_Shirt::shirt_head" />
+        <add id="Esgi_Shirt::team" title="Teams" module="Esgi_Shirt" sortOrder="10" parent="Esgi_Shirt::shirt_head" action="shirt/team" resource="Esgi_Shirt::team" />
+        <add id="Esgi_Shirt::shirt" title="Shirts" module="Esgi_Shirt" sortOrder="20" parent="Esgi_Shirt::shirt_head" action="shirt/shirt" resource="Esgi_Shirt::shirt" />
+    </menu>
+</config>
